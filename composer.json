@@ -1,0 +1,46 @@
+{
+    "name": "dmitryrogolev/is",
+    "description": "Функционал ролей для фреймворка Laravel.",
+    "version": "0.0.1",
+    "type": "library",
+    "keywords": [
+        "roles",
+        "laravel",
+        "laravel-roles"
+    ],
+    "homepage": "https://github.com/dmitry-rogolev/Roles",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Rogolev",
+            "email": "work.drogolev@internet.ru",
+            "homepage": "https://dmitryrogolev.ru",
+            "role": "Developer"
+        }
+    ],
+    "require-dev": {
+        "laravel/pint": "^1.13",
+        "orchestra/testbench": "^8.21",
+        "nunomaduro/collision": "^7.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "dmitryrogolev\\Roles\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\": "stubs/App/",
+            "Database\\Factories\\": "stubs/database/factories/",
+            "Database\\Seeders\\": "stubs/database/seeders/",
+            "Tests\\": "tests/",
+            "Tests\\Database\\Factories\\": "tests/database/factories/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "@php vendor/bin/testbench package:test",
+        "pint": "@php vendor/bin/pint"
+    }
+}
