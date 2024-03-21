@@ -13,7 +13,7 @@ return new class extends Migration
         if (! Schema::hasTable($this->table)) {
             Schema::create($this->table, function (Blueprint $table) {
                 $table->uuid('id');
-                $table->string('name', 255)->nullable();
+                $table->string('name', 255);
                 $table->string('slug', 255)->unique();
                 $table->text('description')->nullable();
                 $table->tinyInteger('level')->default(0);

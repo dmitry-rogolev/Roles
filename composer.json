@@ -1,5 +1,5 @@
 {
-    "name": "dmitryrogolev/is",
+    "name": "dmitryrogolev/roles",
     "description": "Функционал ролей для фреймворка Laravel.",
     "version": "0.0.1",
     "type": "library",
@@ -14,7 +14,7 @@
         {
             "name": "Dmitry Rogolev",
             "email": "work.drogolev@internet.ru",
-            "homepage": "https://dmitryrogolev.ru",
+            "homepage": "https://github.com/dmitry-rogolev",
             "role": "Developer"
         }
     ],
@@ -25,14 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "dmitryrogolev\\Roles\\": "src/"
+            "dmitryrogolev\\Roles\\": "src/",
+            "dmitryrogolev\\Roles\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\": "stubs/App/",
-            "Database\\Factories\\": "stubs/database/factories/",
-            "Database\\Seeders\\": "stubs/database/seeders/",
             "Tests\\": "tests/",
             "Tests\\Database\\Factories\\": "tests/database/factories/"
         }

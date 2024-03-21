@@ -1,25 +1,25 @@
 <?php
 
-namespace Database\Factories;
+namespace dmitryrogolev\Roles\Database\Factories;
 
-use App\Models\Role;
+use dmitryrogolev\Roles\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RoleFactory extends Factory
 {
-    protected $model = Role::class;
+	protected $model = Role::class;
 
-    public function definition(): array
-    {
-        $roles = $this->getRoles();
+	public function definition(): array 
+	{
+		$roles = $this->getRoles();
 
-        return $roles[array_rand($roles)];
-    }
+		return $roles[array_rand($roles)];
+	}
 
-    protected function getRoles(): array
-    {
-        return [
-            ['name' => 'Супер', 'slug' => 'super', 'description' => '', 'level' => 10],
+	public function getRoles(): array 
+	{
+		return [
+			['name' => 'Супер', 'slug' => 'super', 'description' => '', 'level' => 10],
 
             ['name' => 'Администратор', 'slug' => 'admin', 'description' => '', 'level' => 5],
 
@@ -60,6 +60,6 @@ class RoleFactory extends Factory
             ['name' => 'Гость', 'slug' => 'guest', 'description' => '', 'level' => 0],
             ['name' => 'Посетитель', 'slug' => 'visitor', 'description' => '', 'level' => 0],
             ['name' => 'Непроверенный', 'slug' => 'unverified', 'description' => '', 'level' => 0],
-        ];
-    }
+		];
+	}
 }

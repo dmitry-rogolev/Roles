@@ -2,15 +2,16 @@
 
 namespace Tests;
 
+use Illuminate\Foundation\Testing\RefreshDatabase as TestingRefreshDatabase;
+
 trait RefreshDatabase
 {
-    use \Illuminate\Foundation\Testing\RefreshDatabase;
+    use TestingRefreshDatabase;
 
     protected function defineDatabaseMigrations(): void
     {
-        $this->loadMigrationsFrom([
-            __DIR__.'/database/migrations',
-            __DIR__.'/../database/migrations',
-        ]);
+        $this->loadMigrationsFrom(
+            __DIR__.'/database/migrations', 
+        );
     }
 }
