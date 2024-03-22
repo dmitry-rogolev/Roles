@@ -2,8 +2,8 @@
 
 namespace Tests\Database\Factories;
 
-use Tests\Models\User;
 use Orchestra\Testbench\Factories\UserFactory as TestbenchUserFactory;
+use Tests\Models\User;
 
 class UserFactory extends TestbenchUserFactory
 {

@@ -19,8 +19,8 @@
         }
     ],
     "require-dev": {
-        "laravel/pint": "^1.13",
-        "orchestra/testbench": "^8.21",
+        "laravel/pint": "^1.14",
+        "orchestra/testbench": "^8.22",
         "nunomaduro/collision": "^7.10"
     },
     "autoload": {
@@ -31,8 +31,18 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "App\\": "stubs/app/",
+            "Database\\Factories\\": "stubs/database/factories/",
+            "Database\\Seeders\\": "stubs/database/seeders/",
             "Tests\\": "tests/",
             "Tests\\Database\\Factories\\": "tests/database/factories/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "dmitryrogolev\\Roles\\Providers\\RolesServiceProvider"
+            ]
         }
     },
     "minimum-stability": "stable",
@@ -40,5 +50,8 @@
     "scripts": {
         "test": "@php vendor/bin/testbench package:test",
         "pint": "@php vendor/bin/pint"
+    },
+    "require": {
+        "php": "*"
     }
 }

@@ -2,10 +2,10 @@
 
 namespace Tests\Models;
 
-use Tests\Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Model;
+use Tests\Database\Factories\UserFactory;
 
 class User extends Model
 {
@@ -26,8 +26,9 @@ class User extends Model
     public function uniqueIds()
     {
         return [
-			'email', 
-		];
+            $this->getKeyName(),
+            'email',
+        ];
     }
 
     protected static function newFactory(): UserFactory
