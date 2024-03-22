@@ -54,6 +54,6 @@ class RolesServiceProvider extends ServiceProvider
 
     protected function about(): void
     {
-        AboutCommand::add('dmitryrogolev/roles', fn () => ['Version' => '0.0.1']);
+        AboutCommand::add('dmitryrogolev/roles', fn () => ['Version' => static::VERSION]);
     }
 }
