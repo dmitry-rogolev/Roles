@@ -16,7 +16,6 @@ return new class extends Migration
                 $table->string('name', 255);
                 $table->string('slug', 255)->unique();
                 $table->text('description')->nullable();
-                $table->tinyInteger('level')->default(0);
                 $table->timestamps();
             });
         }

@@ -5,6 +5,7 @@ namespace dmitryrogolev\Roles\Traits;
 use App\Models\Role;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Arr;
 
 trait HasRoles
 {
@@ -13,28 +14,9 @@ trait HasRoles
 		return $this->belongsToMany(Role::class)->withTimestamps();
 	}
 
-	/**
-	 * Возвращает все присоединенные роли.
-	 */
 	public function getRoles(): Collection
 	{
-		return Role::where('level', '<=', $this->getLevel())->get();
-	}
-
-	/**
-	 * Возвращает роль с наибольшим уровнем.
-	 */
-	public function getRole(): ?Role
-	{
-		return $this->roles->sortByDesc('level')->first();
-	}
-
-	/**
-	 * Возвращает наибольший уровень присоединенных ролей.
-	 */
-	public function getLevel(): int
-	{
-		return $this->getRole()?->level ?? 0;
+		return $this->roles;
 	}
 
 	public function loadRoles(): static 
@@ -42,5 +24,53 @@ trait HasRoles
 		return $this->load('roles');
 	}
 
-	
+	public function attachRole(...$roles): static 
+	{
+		$roles = Arr::flatten($roles);
+
+		foreach ($roles as $role) {
+			$this->roles()->attach($role);
+		}
+
+		return $this;
+	}
+
+	public function detachRole(...$roles): static
+	{
+		$roles = Arr::flatten($roles);
+
+		foreach ($roles as $role) {
+			$this->roles()->detach($role);
+		}
+
+		return $this;
+	}
+
+	public function detachAllRoles(): static
+	{
+		$this->roles()->detach();
+
+		return $this;
+	}
+
+	public function syncRoles(...$roles): static
+	{
+		$this->detachAllRoles();
+		$this->attachRole(...$roles);
+
+		return $this;
+	}
+
+	public function hasRole(...$roles): bool 
+	{
+		$roles = Arr::flatten($roles);
+
+		foreach ($roles as $role) {
+			if (! $this->roles->contains(fn ($item) => $item->is($role))) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 }

@@ -12,10 +12,8 @@ class RoleTest extends TestCase
 {
 	use RefreshDatabase;
 
-	public function test_has_relations(): void 
+	public function test_users(): void 
 	{
-		$this->assertInstanceOf(RoleHasRelations::class, app(Role::class));
-
 		$role = Role::factory()->create();
 		$user = User::factory()->create();
 		$role->users()->attach($user->id);

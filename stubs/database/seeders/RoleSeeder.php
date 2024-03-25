@@ -19,9 +19,9 @@ class RoleSeeder extends Seeder
     public function getRoles(): array
     {
         return [
-            ['name' => 'Администратор', 'slug' => 'admin', 'description' => '', 'level' => 5],
-            ['name' => 'Пользователь', 'slug' => 'user', 'description' => '', 'level' => 1],
-            ['name' => 'Гость', 'slug' => 'visitor', 'description' => '', 'level' => 0],
+            ['name' => 'Администратор', 'slug' => 'admin', 'description' => ''],
+            ['name' => 'Пользователь', 'slug' => 'user', 'description' => ''],
+            ['name' => 'Гость', 'slug' => 'visitor', 'description' => ''],
         ];
     }
 }

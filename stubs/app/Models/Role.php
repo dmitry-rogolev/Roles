@@ -3,13 +3,12 @@
 namespace App\Models;
 
 use Database\Factories\RoleFactory;
-use dmitryrogolev\Roles\Contracts\RoleHasRelations;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Role extends Model implements RoleHasRelations
+class Role extends Model
 {
     use HasFactory;
     use HasUuids;
@@ -18,7 +17,6 @@ class Role extends Model implements RoleHasRelations
         'name',
         'slug',
         'description',
-        'level',
     ];
 
     public function users(): BelongsToMany

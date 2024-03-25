@@ -17,7 +17,6 @@ class RoleFactory extends Factory
             'name' => ucfirst($name),
             'slug' => str($name)->slug('.')->toString(),
             'description' => '',
-            'level' => fake()->numberBetween(0, 10),
         ];
     }
 }
