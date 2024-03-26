@@ -12,8 +12,8 @@ use Tests\Database\Factories\UserFactory;
 class User extends Model implements Roleable
 {
     use HasFactory;
-    use HasUuids;
     use HasRoles;
+    use HasUuids;
 
     protected $fillable = [
         'name',
